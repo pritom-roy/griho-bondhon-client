@@ -6,7 +6,6 @@ Here is your improved README file with all the requested details:
 
 GrihoBandhon is a modern matrimonial platform built with the MERN stack (MongoDB, Express, React, and Node.js). It offers a user-friendly experience for individuals looking to find potential life partners through advanced search, filtering, and matchmaking features.
 
-![Project Screenshot](https://dummyimage.com/800x500/000/fff.png&text=Project+Screenshot)
 
 ## 🌍 Live Project
 [🔗 Visit GrihoBandhon](https://grihobondhon.netlify.app)
@@ -124,3 +123,5 @@ VITE_storageBucket=YOUR_FIREBASE_STORAGE_BUCKET
 VITE_messagingSenderId=YOUR_FIREBASE_MESSAGING_SENDER_ID
 VITE_appId=YOUR_FIREBASE_APP_ID
 ```
+
+![Project Screenshot](https://raw.githubusercontent.com/pritom-roy/griho-bondhon-client/main/griho.png)
