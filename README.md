@@ -1,7 +1,3 @@
-Here is your improved README file with all the requested details:
-
----
-
 # GrihoBandhon Matrimony Platform
 
 GrihoBandhon is a modern matrimonial platform built with the MERN stack (MongoDB, Express, React, and Node.js). It offers a user-friendly experience for individuals looking to find potential life partners through advanced search, filtering, and matchmaking features.
