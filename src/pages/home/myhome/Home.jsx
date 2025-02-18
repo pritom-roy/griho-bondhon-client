@@ -10,7 +10,7 @@ const Home = () => {
         document.title = "GrihoBondhon | Home";
     }, []);
     return (
-        <div>
+        <div className="bg-gray-50">
             <Banner />
             <HowItWorks />
             <Profile />

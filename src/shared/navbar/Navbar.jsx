@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <nav className="bg-gray-800 text-white">
             <div className="md:w-10/12 mx-auto">
-                <div className="container mx-auto px-4 flex items-center justify-between h-16">
+                <div className="px-4 flex items-center justify-between h-16">
                     <div className="text-2xl font-bold flex items-center gap-1">
                         <img src="/logo.png" alt="logo" className="h-7" />
                         <Link to="/home">
