@@ -67,7 +67,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="md:p-6 p-2 bg-gray-50 min-h-screen">
+        <div className="md:p-6 p-2 bg-white rounded-xl min-h-screen">
             <h1 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Admin Dashboard</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

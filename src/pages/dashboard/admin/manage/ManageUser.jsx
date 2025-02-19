@@ -68,8 +68,8 @@ const ManageUsers = () => {
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold mb-6">Manage Users</h1>
+        <div className="p-6 bg-white rounded-xl shadow-lg min-h-screen">
+            <h1 className="text-3xl font-bold mb-6 text-gray-800">Manage Users</h1>
 
             <div className="mb-4">
                 <input
@@ -77,7 +77,7 @@ const ManageUsers = () => {
                     placeholder="Search by username"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="border p-2 rounded w-full"
+                    className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
 
@@ -87,18 +87,18 @@ const ManageUsers = () => {
                 <div>
                     {/* Table for larger devices */}
                     <div className="hidden md:block">
-                        <table className="min-w-full bg-white border">
-                            <thead>
+                        <table className="min-w-full bg-white">
+                            <thead className="bg-gray-200">
                                 <tr>
-                                    <th className="border px-4 py-2">Username</th>
-                                    <th className="border px-4 py-2">Email</th>
-                                    <th className="border px-4 py-2">Role</th>
-                                    <th className="border px-4 py-2">Actions</th>
+                                    <th className="border px-4 py-2 text-left text-gray-600">Username</th>
+                                    <th className="border px-4 py-2 text-left text-gray-600">Email</th>
+                                    <th className="border px-4 py-2 text-left text-gray-600">Role</th>
+                                    <th className="border px-4 py-2 text-left text-gray-600">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {users.map((user) => (
-                                    <tr key={user._id}>
+                                    <tr key={user._id} className="hover:bg-gray-100">
                                         <td className="border px-4 py-2">{user.username}</td>
                                         <td className="border px-4 py-2">{user.email}</td>
                                         <td className="border px-4 py-2">{user.role}</td>
@@ -108,7 +108,7 @@ const ManageUsers = () => {
                                                 {user.role !== 'admin' && (
                                                     <button
                                                         onClick={() => makeAdmin(user._id)}
-                                                        className="bg-blue-500 w-full text-white px-4 py-2 rounded mb-2"
+                                                        className="bg-blue-500 text-white px-4 py-2 rounded mb-2 transition duration-300 hover:bg-blue-600"
                                                     >
                                                         Make Admin
                                                     </button>
@@ -116,7 +116,7 @@ const ManageUsers = () => {
                                                 {!user.isPremium && (
                                                     <button
                                                         onClick={() => makePremium(user._id)}
-                                                        className="bg-green-500 w-full text-white px-4 py-2 rounded"
+                                                        className="bg-green-500 text-white px-4 py-2 rounded transition duration-300 hover:bg-green-600"
                                                     >
                                                         Make Premium
                                                     </button>
@@ -134,7 +134,7 @@ const ManageUsers = () => {
                         {users.map((user) => (
                             <div
                                 key={user._id}
-                                className="bg-white border rounded-lg p-4 shadow-md"
+                                className="bg-white border rounded-lg p-4 shadow-md transition duration-300 hover:shadow-lg"
                             >
                                 <p>
                                     <span className="font-bold">Username:</span> {user.username}
@@ -150,7 +150,7 @@ const ManageUsers = () => {
                                     {user.role !== 'admin' && (
                                         <button
                                             onClick={() => makeAdmin(user._id)}
-                                            className="bg-blue-500 text-white px-4 py-2 rounded mb-2"
+                                            className="bg-blue-500 text-white px-4 py-2 rounded mb-2 transition duration-300 hover:bg-blue-600"
                                         >
                                             Make Admin
                                         </button>
@@ -158,7 +158,7 @@ const ManageUsers = () => {
                                     {!user.isPremium && (
                                         <button
                                             onClick={() => makePremium(user._id)}
-                                            className="bg-green-500 text-white px-4 py-2 rounded"
+                                            className="bg-green-500 text-white px-4 py-2 rounded transition duration-300 hover:bg-green-600"
                                         >
                                             Make Premium
                                         </button>
