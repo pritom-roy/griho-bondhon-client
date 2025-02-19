@@ -65,57 +65,56 @@ const router = createBrowserRouter([
                 path: 'contactus',
                 element: <ContactUs />
             },
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        children: [
             {
-                path: 'dashboard',
-                element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-                children: [
-                    {
-                        path: '',
-                        element: <RoleBased />
-                    },
-                    {
-                        path: 'edit-data',
-                        element: <EditBiodata />
-                    },
-                    {
-                        path: 'view-data',
-                        element: <ViewBiodata />
-                    },
-                    {
-                        path: 'contact-request',
-                        element: <MyContactRequest />
-                    },
-                    {
-                        path: 'favourite-data',
-                        element: <FavouriteBiodata />
-                    },
-                    {
-                        path: 'admin-dashboard',
-                        element: <AdminDashboard />
-                    },
-                    {
-                        path: 'manage-user',
-                        element: <ManageUser />
-                    },
-                    {
-                        path: 'approve-premium',
-                        element: <ApprovePremium />
-                    },
-                    {
-                        path: 'approve-request',
-                        element: <ApproveContactRequest />
-                    },
-                    {
-                        path: 'success-story-user',
-                        element: <SuccessStoryUser />
-                    },
-                    {
-                        path: 'success-story-admin',
-                        element: <SuccessStoryAdmin />
-                    },
-                ]
+                path: '',
+                element: <RoleBased />
             },
-
+            {
+                path: 'edit-data',
+                element: <EditBiodata />
+            },
+            {
+                path: 'view-data',
+                element: <ViewBiodata />
+            },
+            {
+                path: 'contact-request',
+                element: <MyContactRequest />
+            },
+            {
+                path: 'favourite-data',
+                element: <FavouriteBiodata />
+            },
+            {
+                path: 'admin-dashboard',
+                element: <AdminDashboard />
+            },
+            {
+                path: 'manage-user',
+                element: <ManageUser />
+            },
+            {
+                path: 'approve-premium',
+                element: <ApprovePremium />
+            },
+            {
+                path: 'approve-request',
+                element: <ApproveContactRequest />
+            },
+            {
+                path: 'success-story-user',
+                element: <SuccessStoryUser />
+            },
+            {
+                path: 'success-story-admin',
+                element: <SuccessStoryAdmin />
+            },
         ]
     },
     {
