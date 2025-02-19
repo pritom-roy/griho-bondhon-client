@@ -92,7 +92,7 @@ const EditBiodata = () => {
     }
 
     return (
-        <div className="mx-auto p-6 bg-white shadow-md rounded-md">
+        <div className="mx-auto p-2 md:p-6 bg-white shadow-md rounded-md">
             <h1 className="text-2xl font-bold mb-4">
                 {isEditing ? "Edit Biodata" : "Create Biodata"}
             </h1>
@@ -376,7 +376,7 @@ const EditBiodata = () => {
                 </fieldset>
 
                 <div className="col-span-2">
-                    <button type="submit" className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700">
+                    <button type="submit" className="w-full bg-primary text-white py-2 rounded-md hover:bg-green-600">
                         {isEditing ? "Update Biodata" : "Save and Publish Now"}
                     </button>
                 </div>

@@ -80,7 +80,7 @@ const DashboardLayout = () => {
     return (
         <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
             {/* Sidebar for Desktop */}
-            <aside className="w-64 bg-white shadow-lg p-5 hidden md:block">
+            <aside className="w-64 bg-white shadow-lg p-5 hidden md:block h-screen fixed">
                 <h2 className="text-2xl font-semibold text-center text-primary mb-5">Dashboard</h2>
                 <nav className="flex flex-col space-y-2">
                     {menuItems}
@@ -105,11 +105,11 @@ const DashboardLayout = () => {
             )}
 
             {/* Main Content */}
-            <main className="flex-1 p-2 w-full">
+            <main className="flex-1 p-2 w-full h-screen overflow-y-auto md:ml-64">
                 {/* Top Bar */}
                 <div className="flex justify-between items-center bg-white px-3 py-2 rounded-lg shadow-md mb-2">
                     <h1 className="text-xl font-semibold">{user?.displayName || "User"}</h1>
-                    <Link className="text-2xl font-bold" to="/home">
+                    <Link className="text-2xl font-bold hidden md:block" to="/home">
                         <span className="text-primary">Griho</span>Bondhon
                     </Link>
                     <img src={user?.photoURL || "https://via.placeholder.com/40"} alt="Profile" className="w-12 h-12 object-cover rounded-full border" />
