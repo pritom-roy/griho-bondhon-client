@@ -97,7 +97,7 @@ const EditBiodata = () => {
     }
 
     return (
-        <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md">
+        <div className="mx-auto p-6 bg-white shadow-md rounded-md">
             <h1 className="text-2xl font-bold mb-4">
                 {isEditing ? "Edit Biodata" : "Create Biodata"}
             </h1>
