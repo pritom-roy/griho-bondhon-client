@@ -36,7 +36,7 @@ const ApproveContactRequest = () => {
     };
 
     return (
-        <div className="p-6">
+        <div className="p-6 bg-white rounded-xl shadow-lg">
             <h1 className="text-3xl font-bold mb-6">Approve Contact Requests</h1>
             {loading ? (
                 <Loading />

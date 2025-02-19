@@ -51,7 +51,7 @@ const ApprovePremium = () => {
     if (!requests) return <Loading />;
 
     return (
-        <div className="p-6">
+        <div className="p-6 bg-white rounded-xl shadow-lg">
             <h1 className="text-3xl font-bold mb-6">Approved Premium</h1>
 
             {/* Display as a table for larger screens */}
