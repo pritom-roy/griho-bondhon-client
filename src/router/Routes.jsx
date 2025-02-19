@@ -22,6 +22,7 @@ import Checkout from "../pages/checkout/Checkout";
 import SuccessStoryUser from "../pages/dashboard/user/story/SuccessStoryUser";
 import SuccessStoryAdmin from "../pages/dashboard/admin/story/SuccessStoryAdmin";
 import Error from "../pages/error/Error";
+import ScrollToTop from "../shared/scroll/ScrollToTop";
 
 
 const router = createBrowserRouter([
@@ -47,11 +48,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'biodatas',
-                element: <Biodatas />
+                element: <><ScrollToTop /> <Biodatas /></>
             },
             {
                 path: "biodatas/:id",
-                element: <PrivateRoute><BioDetails /></PrivateRoute>
+                element: <><ScrollToTop /><PrivateRoute><BioDetails /></PrivateRoute></>
             },
             {
                 path: "checkout/:id",

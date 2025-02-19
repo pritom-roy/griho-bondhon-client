@@ -34,7 +34,7 @@ const Profile = () => {
 
     return (
         <div className="w-11/12 md:w-10/12 mx-auto md:pb-16 pb-5">
-            <h2 className="text-3xl uppercase font-semibold mb-6 text-center">Premium Members</h2>
+            <h2 className="text-3xl uppercase font-bold mb-6 text-center">Premium Members</h2>
             <div className="flex justify-end mb-4">
                 <select
                     value={sortOrder}
