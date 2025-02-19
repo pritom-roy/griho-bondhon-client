@@ -17,7 +17,7 @@ const Navbar = () => {
     const location = useLocation().pathname;
 
     return (
-        <nav className="bg-gray-800 text-white">
+        <nav className="bg-gray-800 text-white sticky top-0 z-50 shadow">
             <div className="md:w-10/12 mx-auto">
                 <div className="px-4 flex items-center justify-between h-16">
                     <div className="text-2xl font-bold flex items-center gap-1">
