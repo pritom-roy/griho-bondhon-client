@@ -58,16 +58,16 @@ const DashboardLayout = () => {
 
             <hr className="my-2" />
 
-            <Link className={`flex items-center px-4 py-2 rounded-md ${location === '/dashboard' ? 'bg-primary text-white' : 'text-gray-700'} hover:bg-primary hover:text-white`} to="/dashboard">
+            <Link className={`flex items-center px-4 py-2 rounded-md hover:bg-primary hover:text-white`} to="/home">
                 <FaHome className="mr-2" /> Home
             </Link>
-            <Link className={`flex items-center px-4 py-2 rounded-md ${location === '/dashboard/marriage-biodata' ? 'bg-primary text-white' : 'text-gray-700'} hover:bg-primary hover:text-white`} to="/dashboard/marriage-biodata">
-                <FaBook className="mr-2" /> Marriage Biodata
+            <Link className={`flex items-center px-4 py-2 rounded-md hover:bg-primary hover:text-white`} to="/biodatas">
+                <FaBook className="mr-2" /> Biodatas
             </Link>
-            <Link className={`flex items-center px-4 py-2 rounded-md ${location === '/about' ? 'bg-primary text-white' : 'text-gray-700'} hover:bg-primary hover:text-white`} to="/about">
+            <Link className={`flex items-center px-4 py-2 rounded-md hover:bg-primary hover:text-white`} to="/aboutus">
                 <FaInfoCircle className="mr-2" /> About Us
             </Link>
-            <Link className={`flex items-center px-4 py-2 rounded-md ${location === '/contact' ? 'bg-primary text-white' : 'text-gray-700'} hover:bg-primary hover:text-white`} to="/contact">
+            <Link className={`flex items-center px-4 py-2 rounded-md hover:bg-primary hover:text-white`} to="/contactus">
                 <FaEnvelope className="mr-2" /> Contact Us
             </Link>
 
