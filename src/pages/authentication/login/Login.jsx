@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa";
-// import Lottie from "lottie-react";
-// import loginAnimation from "/login.json"
+import ani from "../../../assets/marriage.json";
+import Lottie from "lottie-react";
 
 const Login = () => {
     const { loginUser, googleSignin } = useContext(AuthContext);
@@ -29,100 +29,63 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         loginUser(email, password)
-            .then((result) => {
-                console.log(result.user);
+            .then(() => {
                 event.target.reset();
-                Toast.fire({
-                    icon: "success",
-                    title: "Login Successful",
-                });
+                Toast.fire({ icon: "success", title: "Login Successful" });
                 navigate(location?.state || "/");
             })
             .catch((error) => {
                 setErrorMessage(error.message);
-                Toast.fire({
-                    icon: "error",
-                    title: error.message,
-                });
+                Toast.fire({ icon: "error", title: error.message });
             });
     };
-
 
     const handleGoogleLogin = () => {
         googleSignin()
-            .then((result) => {
-                console.log(result.user);
-                Toast.fire({
-                    icon: "success",
-                    title: "Login Successful",
-                });
+            .then(() => {
+                Toast.fire({ icon: "success", title: "Login Successful" });
                 navigate(location?.state || "/");
             })
             .catch((error) => {
                 setErrorMessage(error.message);
-                Toast.fire({
-                    icon: "error",
-                    title: error.message,
-                });
+                Toast.fire({ icon: "error", title: error.message });
             });
     };
 
-    return (
-        <div className="min-h-screen">
-            <div className="text-center flex justify-center items-center mt-5 mb-3">
-                <h1 className="text-3xl font-bold text-center text-mytext">
-                    Login
-                </h1>
-                {/* <Lottie className="h-20" animationData={loginAnimation} /> */}
-            </div>
-            <div className="flex justify-center items-center flex-col mb-10 px-5">
-                <div className="w-full max-w-sm border border-mytext rounded-lg">
-                    <form onSubmit={handleSubmit} className="p-5">
-                        <div className="mb-4">
-                            <label className="block font-[500] mb-1">Email</label>
-                            <input
-                                name="email"
-                                type="email"
-                                placeholder="Enter your email"
-                                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                                required
-                            />
-                        </div>
+    const fillUserCredentials = () => {
+        document.getElementsByName("email")[0].value = "zahid.khan@example.com";
+        document.getElementsByName("password")[0].value = "123456";
+    };
 
-                        <div className="mb-4">
-                            <label className="block font-[500] mb-1">Password</label>
-                            <input
-                                name="password"
-                                type="password"
-                                placeholder="Enter your password"
-                                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                                required
-                            />
-                        </div>
-                        <div className="flex justify-center">
-                            <button className="px-3 py-2 text-white bg-gray-600 rounded-md hover:bg-primary">
-                                Login
-                            </button>
-                        </div>
-                    </form>
-                    <div className="flex justify-center mb-4">
-                        <button
-                            onClick={handleGoogleLogin}
-                            className="px-3 py-2 mt-2 text-white bg-gray-600 rounded-md hover:bg-primary flex items-center"
-                        >
-                            <FaGoogle className="mr-2" /> Login with Google
-                        </button>
+    const fillAdminCredentials = () => {
+        document.getElementsByName("email")[0].value = "admin@admin.com";
+        document.getElementsByName("password")[0].value = "123456";
+    };
+
+    return (
+        <div className="flex flex-col items-center justify-center md:pt-20 md:pb-28 bg-gray-100">
+            <div className="w-full p-6 max-w-4xl flex border rounded-lg shadow-lg overflow-hidden bg-white">
+                <div className="w-1/2 flex items-center justify-center bg-white p-5">
+                    <Lottie animationData={ani} loop autoplay style={{ width: 350, height: 350 }} />
+                </div>
+                <div className="w-1/2 p-6">
+                    <h1 className="text-2xl font-bold text-center mb-3">Login</h1>
+                    <p className="text-center text-gray-600 mb-3">Connecting Hearts and Families</p>
+                    <div className="flex justify-center gap-4 mb-4">
+                        <button onClick={fillUserCredentials} className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">User</button>
+                        <button onClick={fillAdminCredentials} className="px-3 py-2 bg-primary text-white rounded-md hover:bg-red-500">Admin</button>
                     </div>
-                    {errorMessage && (
-                        <p className="text-center text-red-500 mt-4">{errorMessage}</p>
-                    )}
-                    <p className="text-center my-4">
-                        <span>New to this site? </span>
-                        <Link
-                            to="/register"
-                            className="font-semibold hover:underline">
-                            Register
-                        </Link>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <input name="email" type="email" placeholder="Email" className="w-full border p-2 rounded" required />
+                        <input name="password" type="password" placeholder="Password" className="w-full border p-2 rounded" required />
+                        <button className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700">Login</button>
+                    </form>
+                    <button onClick={handleGoogleLogin} className="w-full flex items-center justify-center bg-primary text-white py-2 mt-3 rounded hover:bg-red-600">
+                        <FaGoogle className="mr-2" /> Login with Google
+                    </button>
+                    {errorMessage && <p className="text-center text-primary mt-3">{errorMessage}</p>}
+                    <p className="text-center mt-4">
+                        New here? <Link to="/register" className="text-blue-500 hover:underline">Register</Link>
                     </p>
                 </div>
             </div>

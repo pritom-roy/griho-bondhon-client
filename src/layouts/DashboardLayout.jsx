@@ -11,6 +11,7 @@ const DashboardLayout = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const handleLogOut = () => {
+        navigate("/home")
         logOut()
             .then(() => navigate("/home"))
             .catch(error => console.log("Error logging out:", error.message));
