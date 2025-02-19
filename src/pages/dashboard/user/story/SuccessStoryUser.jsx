@@ -76,32 +76,34 @@ const SuccessStoryUser = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white shadow rounded-xl">
+        <div className="mt-2 mx-auto p-6 bg-white shadow rounded-xl">
             <h2 className="text-2xl font-bold mb-6">{isStoryExisting ? 'Update Success Story' : 'Got Married'}</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                    <label className="block font-medium mb-1">Self Biodata ID</label>
-                    <input
-                        type="text"
-                        name="selfBiodataId"
-                        value={formData.selfBiodataId}
-                        onChange={handleChange}
-                        className="w-full p-2 border rounded"
-                        readOnly={isStoryExisting} // Make it read-only if story exists
-                        required
-                    />
-                </div>
-                <div>
-                    <label className="block font-medium mb-1">Partner Biodata ID</label>
-                    <input
-                        type="text"
-                        name="partnerBiodataId"
-                        value={formData.partnerBiodataId}
-                        onChange={handleChange}
-                        className="w-full p-2 border rounded"
-                        readOnly={isStoryExisting}
-                        required
-                    />
+                <div className='flex flex-col md:flex-row md:justify-between w-full md: gap-4'>
+                    <div className='flex-1'>
+                        <label className="block font-medium md:mb-0 mb-1">Self Biodata ID</label>
+                        <input
+                            type="text"
+                            name="selfBiodataId"
+                            value={formData.selfBiodataId}
+                            onChange={handleChange}
+                            className="w-full p-2 border rounded"
+                            readOnly={isStoryExisting} // Make it read-only if story exists
+                            required
+                        />
+                    </div>
+                    <div className='flex-1'>
+                        <label className="block font-medium md:mb-0 mb-1">Partner Biodata ID</label>
+                        <input
+                            type="text"
+                            name="partnerBiodataId"
+                            value={formData.partnerBiodataId}
+                            onChange={handleChange}
+                            className="w-full p-2 border rounded"
+                            readOnly={isStoryExisting}
+                            required
+                        />
+                    </div>
                 </div>
                 <div>
                     <label className="block font-medium mb-1">Couple Image Link</label>
@@ -136,9 +138,11 @@ const SuccessStoryUser = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded">
-                    {isStoryExisting ? 'Update' : 'Submit'}
-                </button>
+                <div className='flex justify-center'>
+                    <button type="submit" className="px-4 py-2 bg-primary hover:bg-green-600 text-white rounded">
+                        {isStoryExisting ? 'Update' : 'Submit'}
+                    </button>
+                </div>
             </form>
         </div>
     );

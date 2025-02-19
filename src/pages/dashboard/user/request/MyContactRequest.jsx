@@ -37,43 +37,47 @@ const MyContactRequest = () => {
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold mb-6">My Contact Requests</h1>
+        <div className="mt-2 p-6 rounded-xl bg-white">
+            <h1 className="text-2xl mb-6 font-bold">My Contact Requests</h1>
             {loading ? (
                 <Loading />
             ) : (
                 <>
                     {/* Table for larger screens */}
                     <div className="hidden md:block">
-                        <table className="min-w-full bg-white border">
-                            <thead>
-                                <tr>
-                                    <th className="border px-4 py-2">Name</th>
-                                    <th className="border px-4 py-2">Biodata ID</th>
-                                    <th className="border px-4 py-2">Status</th>
-                                    <th className="border px-4 py-2">Mobile No</th>
-                                    <th className="border px-4 py-2">Email</th>
-                                    <th className="border px-4 py-2">Actions</th>
+                        <table className="min-w-full bg-white border shadow-md rounded-lg overflow-hidden">
+                            <thead className="bg-gray-100">
+                                <tr className="text-left">
+                                    <th className="border px-6 py-3 text-gray-700">Name</th>
+                                    <th className="border px-6 py-3 text-gray-700">Biodata ID</th>
+                                    <th className="border px-6 py-3 text-gray-700">Status</th>
+                                    <th className="border px-6 py-3 text-gray-700">Mobile No</th>
+                                    <th className="border px-6 py-3 text-gray-700">Email</th>
+                                    <th className="border px-6 py-3 text-gray-700 text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {contactRequests.map((request) => (
-                                    <tr key={request._id}>
-                                        <td className="border px-4 py-2">{request.name}</td>
-                                        <td className="border px-4 py-2">{request.id}</td>
-                                        <td className="border px-4 py-2">
-                                            {request.isApproved ? "Approved" : "Pending"}
+                                {contactRequests.map((request, index) => (
+                                    <tr key={request._id} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                                        <td className="border px-6 py-3 text-gray-700">{request.name}</td>
+                                        <td className="border px-6 py-3 text-gray-700">{request.id}</td>
+                                        <td className="border px-6 py-3 text-gray-700">
+                                            {request.isApproved ? (
+                                                <span className="text-green-600 font-semibold">Approved</span>
+                                            ) : (
+                                                <span className="text-yellow-600 font-semibold">Pending</span>
+                                            )}
                                         </td>
-                                        <td className="border px-4 py-2">
+                                        <td className="border px-6 py-3 text-gray-700">
                                             {request.isApproved ? request.mobileNumber : "Waiting for Approval"}
                                         </td>
-                                        <td className="border px-4 py-2">
+                                        <td className="border px-6 py-3 text-gray-700">
                                             {request.isApproved ? request.contactEmail : "Waiting for Approval"}
                                         </td>
-                                        <td className="border px-4 py-2">
+                                        <td className="border px-6 py-3 text-center">
                                             <button
                                                 onClick={() => deleteRequest(request._id)}
-                                                className="bg-red-500 text-white px-4 py-2 rounded w-full"
+                                                className="bg-primary hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-200"
                                             >
                                                 Delete
                                             </button>
@@ -89,26 +93,33 @@ const MyContactRequest = () => {
                         {contactRequests.map((request) => (
                             <div
                                 key={request._id}
-                                className="bg-white p-4 rounded shadow-md border flex flex-col space-y-2"
+                                className="bg-white p-4 rounded-lg shadow-md border space-y-2"
                             >
                                 <div>
-                                    <span className="font-bold">Name:</span> {request.name}
+                                    <span className="font-semibold text-gray-800">Name:</span> {request.name}
                                 </div>
                                 <div>
-                                    <span className="font-bold">Biodata ID:</span> {request.id}
+                                    <span className="font-semibold text-gray-800">Biodata ID:</span> {request.id}
                                 </div>
                                 <div>
-                                    <span className="font-bold">Status:</span> {request.isApproved ? "Approved" : "Pending"}
+                                    <span className="font-semibold text-gray-800">Status:</span>{" "}
+                                    {request.isApproved ? (
+                                        <span className="text-green-600 font-semibold">Approved</span>
+                                    ) : (
+                                        <span className="text-yellow-600 font-semibold">Pending</span>
+                                    )}
                                 </div>
                                 <div>
-                                    <span className="font-bold">Mobile No:</span> {request.isApproved ? request.mobileNumber : "Waiting for Approval"}
+                                    <span className="font-semibold text-gray-800">Mobile No:</span>{" "}
+                                    {request.isApproved ? request.mobileNumber : "Waiting for Approval"}
                                 </div>
                                 <div>
-                                    <span className="font-bold">Email:</span> {request.isApproved ? request.contactEmail : "Waiting for Approval"}
+                                    <span className="font-semibold text-gray-800">Email:</span>{" "}
+                                    {request.isApproved ? request.contactEmail : "Waiting for Approval"}
                                 </div>
                                 <button
                                     onClick={() => deleteRequest(request._id)}
-                                    className="bg-red-500 text-white px-4 py-2 rounded"
+                                    className="bg-primary hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-200"
                                 >
                                     Delete
                                 </button>
